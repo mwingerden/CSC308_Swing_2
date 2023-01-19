@@ -23,12 +23,6 @@ import java.util.ArrayList;
 
 public class Lab01 extends JFrame implements WindowListener, ActionListener {
 
-    static private JFrame frame;
-
-    public Lab01() {
-        frame = this;
-    }
-
     /**
      * A main that demonstrates the Lab 01 GUI.
      */
@@ -98,7 +92,7 @@ public class Lab01 extends JFrame implements WindowListener, ActionListener {
         ArrayList<JPanel> jPanels = new ArrayList<>();
 
         //instantiate
-        JPanel cyan = new JPanel(new GridLayout(1, 1));
+        JPanel cyan = new JPanel(new GridLayout(1, 2));
         JPanel pink = new JPanel(new GridLayout(1, 1));
         JPanel yellow = new JPanel(new GridLayout(1, 1));
         JPanel orange = new JPanel(new GridLayout(1, 1));
@@ -111,6 +105,10 @@ public class Lab01 extends JFrame implements WindowListener, ActionListener {
         pink.setBackground(Color.PINK);
         //Cyan
         cyan.add(new JLabel("Hola"));
+        JButton jButton = new JButton();
+        jButton.addActionListener(this);
+        jButton.setText("Click Me");
+        cyan.add(jButton);
         cyan.setBackground(Color.CYAN);
         //Orange
         orange.add(new JLabel("Mundo!"));
@@ -150,7 +148,7 @@ public class Lab01 extends JFrame implements WindowListener, ActionListener {
     @Override
     public void windowOpened(WindowEvent e) {
         JOptionPane.showMessageDialog(
-                frame,
+                this,
                 "Eggs are not supposed to be green.",
                 "Inane warning",
                 JOptionPane.WARNING_MESSAGE);
@@ -188,6 +186,10 @@ public class Lab01 extends JFrame implements WindowListener, ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        JOptionPane.showMessageDialog(
+                this,
+                "Eggs are not supposed to be green.",
+                "Inane warning",
+                JOptionPane.WARNING_MESSAGE);
     }
 }
